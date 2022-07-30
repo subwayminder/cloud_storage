@@ -36,6 +36,12 @@ return [
             'throw' => false,
         ],
 
+        'cloud' => [
+            'driver' => 'local',
+            'root' => storage_path('cloud'),
+            'throw' => false,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
