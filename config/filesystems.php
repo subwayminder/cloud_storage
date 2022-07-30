@@ -38,7 +38,7 @@ return [
 
         'cloud' => [
             'driver' => 'local',
-            'root' => storage_path('cloud'),
+            'root' => storage_path('app/cloud'),
             'throw' => false,
         ],
 
