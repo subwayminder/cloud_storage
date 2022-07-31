@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,14 @@ use App\Http\Controllers\Api\AuthController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::get('test', function () {
+        return response()->json('ok');
+    });
+
+    Route::post('upload', [UploadController::class, 'uploadFile']);
 });
 
 Route::post('register', [AuthController::class, 'register']);

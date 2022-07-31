@@ -25,7 +25,7 @@ class AuthController extends BaseController
         );
         $fields['password'] = bcrypt($fields['password']);
         $user = User::create($fields);
-        $token = $user->createToken(name: $fields['name'], expiresAt: new DateTime('+1 week') )->plainTextToken;
+        $token = $user->createToken(name: 'token', expiresAt: new DateTime('+1 week') )->plainTextToken;
         return response()->json(['success' => true, 'token' => $token], 200);
     }
 
