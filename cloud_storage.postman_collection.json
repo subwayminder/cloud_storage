@@ -1,0 +1,428 @@
+{
+	"info": {
+		"_postman_id": "81257431-cfbb-44d0-9e4e-30c66afd524b",
+		"name": "cloud_storage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost/api/register",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test user\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/register",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/token",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/token",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/file/upload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5w2Nm2uNcgBKFNgf5d7adEtyffrXTTjyckTVQVRL",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/subwayminder/Pictures/tinkoff-bank-general-logo-10.png"
+						},
+						{
+							"key": "filename",
+							"value": "vera",
+							"type": "text"
+						},
+						{
+							"key": "directory",
+							"value": "directory",
+							"type": "text",
+							"disabled": true
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/file/upload",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"file",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/directory/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5w2Nm2uNcgBKFNgf5d7adEtyffrXTTjyckTVQVRL",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"directory\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/directory/create",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"directory",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/file/download/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5w2Nm2uNcgBKFNgf5d7adEtyffrXTTjyckTVQVRL",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "directory",
+							"value": "directory",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "vera.webp",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/file/download/",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"file",
+						"download",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/file/rename/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5w2Nm2uNcgBKFNgf5d7adEtyffrXTTjyckTVQVRL",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "directory",
+							"value": "directory",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "test_name.webp",
+							"type": "text"
+						},
+						{
+							"key": "new_name",
+							"value": "vera.webp",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/file/rename/",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"file",
+						"rename",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/file/delete/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5w2Nm2uNcgBKFNgf5d7adEtyffrXTTjyckTVQVRL",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "directory",
+							"value": "directory",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "vera.webp",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/file/delete/",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"file",
+						"delete",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/user/total",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5w2Nm2uNcgBKFNgf5d7adEtyffrXTTjyckTVQVRL",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/user/total",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"user",
+						"total"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/api/directory/total",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 5w2Nm2uNcgBKFNgf5d7adEtyffrXTTjyckTVQVRL",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "directory",
+							"value": "directory",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/directory/total",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"directory",
+						"total"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	}
+}
