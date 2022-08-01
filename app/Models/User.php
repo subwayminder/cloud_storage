@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -70,4 +71,36 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function files(): HasMany
+    {
+        return $this->hasMany(File::class);
+    }
+
+    public function directories(): HasMany
+    {
+        return $this->hasMany(File::class);
+    }
+
+    public function overlimit(): bool
+    {
+        $files = $this->files()->get();
+        $total = 0;
+        foreach ($files as $file)
+        {
+            $total += $file->size;
+        }
+        return $total > 1024 * 1024 * 100;
+    }
+
+    public function getTotalStorageSize(): int
+    {
+        $files = $this->files()->get();
+        $total = 0;
+        foreach ($files as $file)
+        {
+            $total += $file->size;
+        }
+        return $total;
+    }
 }
