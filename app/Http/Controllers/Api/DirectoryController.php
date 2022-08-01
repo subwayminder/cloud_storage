@@ -39,8 +39,14 @@ class DirectoryController extends BaseController
         }
     }
 
-    public function directoryTotal()
+    public function directoryTotal(Request $request, User $user)
     {
+        $data = $request->validate([
+            'directory' => 'string|required',
+        ]);
 
+        $directory = Directory::where('name', \Arr::get($data, 'directory'))->where('user_id', $user->id)->first();
+        if (!$directory) return response()->json(['success' => false, 'message' => 'Directory is not exists']);
+        return response()->json(['total' => $directory->getTotalSize()/(1024 * 1024) . ' MB']);
     }
 }
