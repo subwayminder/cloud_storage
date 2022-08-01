@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\FileController;
+use App\Http\Controllers\Api\DirectoryController;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +23,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
-
+    Route::post('file/upload', [FileController::class, 'upload']);
+    Route::post('file/rename', [FileController::class, 'rename']);
+    Route::post('file/delete', [FileController::class, 'delete']);
+    Route::post('file/download', [FileController::class, 'download']);
+    Route::post('directory/create', [DirectoryController::class, 'createDirectory']);
+    Route::post('directory/total', [DirectoryController::class, 'createDirectory']);
+    Route::get('user/total', [UserController::class, 'total']);
 });
 
 Route::post('register', [AuthController::class, 'register']);
