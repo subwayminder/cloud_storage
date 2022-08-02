@@ -19,7 +19,7 @@ class DirectoryController extends BaseController
     public function createDirectory(Request $request, User $user) : JsonResponse
     {
         $data = $request->validate([
-            'name' => 'string|required',
+            'name' => 'string|required|not_regex:[\/]',
         ]);
         $created = Storage::makeDirectory('cloud/'.$user->email.'/'.$data['name'], 644);
 
